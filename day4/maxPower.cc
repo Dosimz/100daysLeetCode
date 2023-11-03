@@ -7,6 +7,7 @@ using namespace std;
 ** 前缀和
 ** 差分
 ** 二分查找 这个二分算法不是基于容器长度的二分，而是基于值域范围的二分。
+** 贪心算法
 */
 class Solution {
 public:
