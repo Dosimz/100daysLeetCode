@@ -24,7 +24,11 @@ public:
             return;
         }
         treeStr += to_string(node->val);
-
+        // if(node==nullptr){
+        //     treeStr += "#.";
+        //     return;
+        // }
+        // treeStr += to_string(node->val) + ".";
         traverseSerialize(node->left, treeStr);
         traverseSerialize(node->right, treeStr);
         return;
