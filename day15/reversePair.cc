@@ -4,25 +4,29 @@
 using namespace std;
 class Solution {
 public:
-    void mergeSort(vector<int>& nums, int temps[], int lo, int hi){
-        if(lo==hi) return;
+    std::vector<int> temps;
+    long long count = 0;   
+    void mergeSort(vector<int>& nums, int lo, int hi){
+        if(lo>=hi) return;
         int mid = lo + (hi-lo)/2;
 
-        mergeSort(nums,temps, lo, mid);
-        mergeSort(nums, temps, mid+1, hi);
+        mergeSort(nums, lo, mid);
+        mergeSort(nums, mid+1, hi);
 
         for(int u=lo; u<=hi; u++){
             temps[u] = nums[u];
         }
 
         
+        int end = mid+1;
         for(int ui=lo; ui<=mid; ui++){
-            int end = mid+1;
             while(end<=hi&&(long)temps[ui]>(long)temps[end]*2){
                 end++;
             }
             count += end - mid -1;
         }
+        // std::merge(nums.begin() + lo, nums.begin() + mid + 1, nums.begin() + mid + 1, nums.begin() + hi + 1, temps.begin() + lo);
+        // std::copy(temps.begin() + lo, temps.begin() + hi + 1, nums.begin() + lo);
 
         int i = lo, j = mid+1;
         for(int p=lo; p<=hi; p++){
@@ -40,19 +44,18 @@ public:
 
 
     int reversePairs(vector<int>& nums) {
+        if (nums.size() <= 1) {
+            return 0;
+        }
         int hi = nums.size()-1;
-        // temps.resize(hi+1);
-
-        int temps[nums.size()];
-        memset(temps,0,sizeof(temps));
-
-        mergeSort(nums, temps, 0, hi);
+        temps.resize(hi+1);
+        mergeSort(nums, 0, hi);
         return count;
     }
-public:
+
     // vector<int> temps;
-    
-    int count=0;
+    // int count=0;
+ 
 };
 
 int main() {
