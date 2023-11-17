@@ -57,7 +57,6 @@ public:
             maxDepth = depth;
             q.push_back(node);
         }
-
         traverse(node->left);
         traverse(node->right);
         depth--;
