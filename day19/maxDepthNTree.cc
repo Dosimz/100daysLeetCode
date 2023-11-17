@@ -4,6 +4,7 @@
 #include <deque>
 using namespace std;
 
+
 class Node {
 public:
     int val;
