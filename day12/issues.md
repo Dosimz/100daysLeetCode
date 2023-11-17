@@ -4,7 +4,7 @@ TreeNode* node = TreeNode(val);   // 报错
 
 TreeNode* node = new TreeNode(val);   // 不报错
 
-
+In summary, the first line attempts to assign a pointer to a stack-allocated temporary object, which is not allowed, while the second line correctly allocates memory on the heap and assigns its address to the pointer.
 
 ```cpp
 /**
