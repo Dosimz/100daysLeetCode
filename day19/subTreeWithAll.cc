@@ -45,7 +45,7 @@ public:
     }
 };
 
-class Solution {
+class Solution { 
 public:
     int depth=0;
     int maxDepth=0;
