@@ -20,12 +20,11 @@ public:
 int res;
     int dfsUnivalue(TreeNode* node){
         if(node==nullptr) return 0;
-
         int left = dfsUnivalue(node->left);
         int right = dfsUnivalue(node->right);
 
         int left1 =0, right1 = 0;
-        // 只有相同时，才将 左右子树🌲的 maxUniValue 传递到
+        // 只有相同时，才将 左右子树🌲的 maxUniValue 传递到  
         if(node->left&&node->val==node->left->val){
             // left += 1;        
             left1 = left + 1;
